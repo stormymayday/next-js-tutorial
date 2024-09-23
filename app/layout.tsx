@@ -1,4 +1,5 @@
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 
 export default function RootLayout({
     children,
@@ -8,8 +9,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>
-                <nav>Hello There</nav>
-                {children}
+                <main className="max-w-3xl mx-auto py-10">
+                    <Navbar />
+                    {children}
+                </main>
             </body>
         </html>
     );
