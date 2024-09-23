@@ -1,11 +1,18 @@
 import "./globals.css";
 import { Roboto } from "next/font/google";
 import Navbar from "@/components/Navbar";
+import type { Metadata } from "next";
 
 const roboto = Roboto({
     subsets: ["latin"],
     weight: ["400", "700"],
 });
+
+export const metadata: Metadata = {
+    title: "Next JS Tutorial",
+    description: "Next JS Tutorial",
+    keywords: "nextjs, next.js, next js, tutorial",
+};
 
 export default function RootLayout({
     children,
