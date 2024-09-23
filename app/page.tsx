@@ -1,13 +1,8 @@
-import Link from "next/link";
-
 function Home() {
     return (
-        <div>
+        <section className="h-[80vh] flex flex-col items-center justify-center">
             <h1 className="text-7xl">Home Page</h1>
-            <Link href="/">Home</Link>
-            <Link href="/about">About</Link>
-            <Link href="/info">Info</Link>
-        </div>
+        </section>
     );
 }
 export default Home;
