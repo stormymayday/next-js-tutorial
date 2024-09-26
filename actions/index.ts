@@ -2,48 +2,8 @@
 
 import { db } from "@/db";
 import { revalidatePath } from "next/cache";
+
 // import { redirect } from "next/navigation";
-
-// export const createUser = async (
-//     formState: { message: string },
-//     formData: FormData
-// ) => {
-//     try {
-//         const firstName = formData.get("firstName");
-//         const lastName = formData.get("lastName");
-
-//         if (typeof firstName !== "string" || firstName.length <= 0) {
-//             return {
-//                 message: "firstname must be longer!",
-//             };
-//         }
-
-//         if (typeof lastName !== "string" || lastName.length <= 0) {
-//             return {
-//                 message: "lastname must be longer!",
-//             };
-//         }
-
-//         await db.user.create({
-//             data: {
-//                 firstName: firstName,
-//                 lastName: lastName,
-//             },
-//         });
-
-//         revalidatePath("/actions");
-//     } catch (error: unknown) {
-//         if (error instanceof Error) {
-//             return {
-//                 message: error.message,
-//             };
-//         } else {
-//             return {
-//                 message: "Something went wrong...",
-//             };
-//         }
-//     }
-// };
 
 export async function createUser(
     formState: { successMessage: string; errorMessage: string },
@@ -97,12 +57,31 @@ export async function createUser(
     }
 }
 
-export const deleteUser = async (id: string) => {
-    await db.user.delete({
-        where: {
-            id,
-        },
-    });
+export const deleteUser = async (
+    formState: { message: string },
+    id: string
+) => {
+    try {
+        await db.user.delete({
+            where: {
+                id,
+            },
+        });
 
-    revalidatePath("/actions");
+        revalidatePath("/actions");
+
+        return {
+            message: "user deleted",
+        };
+    } catch (error: unknown) {
+        if (error instanceof Error) {
+            return {
+                message: error.message,
+            };
+        } else {
+            return {
+                message: "Something went wrong...",
+            };
+        }
+    }
 };

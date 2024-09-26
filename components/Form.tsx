@@ -3,6 +3,8 @@
 import { useFormState } from "react-dom";
 import * as actions from "@/actions";
 import CreateUserBtn from "./CreateUserBtn";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Form() {
     const [formState, action] = useFormState(actions.createUser, {
@@ -10,8 +12,17 @@ function Form() {
         errorMessage: "",
     });
 
+    if (formState.successMessage) {
+        toast.success(formState.successMessage);
+    }
+
+    if (formState.errorMessage) {
+        toast.error(formState.errorMessage);
+    }
+
     return (
         <form action={action} className={formStyle}>
+            <ToastContainer />
             <h2 className={formHeaderStyle}>create user</h2>
             <input
                 className={formInputStyle}
@@ -28,7 +39,7 @@ function Form() {
 
             <CreateUserBtn />
 
-            {formState.successMessage ? (
+            {/* {formState.successMessage ? (
                 <div className="my-2 p-2 bg-green-200 border rounded text-center">
                     {formState.successMessage}
                 </div>
@@ -38,7 +49,7 @@ function Form() {
                 <div className="my-2 p-2 bg-red-200 border rounded text-center">
                     {formState.errorMessage}
                 </div>
-            ) : null}
+            ) : null} */}
         </form>
     );
 }
