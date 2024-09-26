@@ -29,13 +29,15 @@ function Form() {
                 className={formInputStyle}
                 type="text"
                 name="firstName"
-                defaultValue="peter"
+                // defaultValue="peter"
+                placeholder="peter"
             />
             <input
                 className={formInputStyle}
                 type="text"
                 name="lastName"
-                defaultValue="smith"
+                // defaultValue="smith"
+                placeholder="smith"
             />
 
             <CreateUserBtn />
