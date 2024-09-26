@@ -12,12 +12,12 @@ interface DeleteUserBtnProps {
 function DeleteUserForm(props: DeleteUserBtnProps) {
     const deleteUserAction = deleteUser.bind(null, { message: "" }, props.id);
 
-    const [formState, action] = useFormState(deleteUserAction, {
+    const [deleteUserFormState, action] = useFormState(deleteUserAction, {
         message: "",
     });
 
-    if (formState.message) {
-        toast.success(formState.message);
+    if (deleteUserFormState.message) {
+        toast.success(deleteUserFormState.message);
     }
 
     return (

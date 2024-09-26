@@ -6,13 +6,13 @@ import CreateUserBtn from "./CreateUserBtn";
 import { toast } from "react-toastify";
 
 function Form() {
-    const [formState, action] = useFormState(actions.createUser, {
+    const [createUserFormState, action] = useFormState(actions.createUser, {
         successMessage: "",
         errorMessage: "",
     });
 
-    if (formState.successMessage) {
-        toast.success(formState.successMessage);
+    if (createUserFormState.successMessage) {
+        toast.success(createUserFormState.successMessage);
         console.log(`hello`);
     }
 
