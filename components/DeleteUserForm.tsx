@@ -3,8 +3,6 @@
 import { deleteUser } from "@/actions";
 import DeleteUserBtn from "./DeleteUserBtn";
 import { useFormState } from "react-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 interface DeleteUserBtnProps {
     id: string;
@@ -17,15 +15,9 @@ function DeleteUserForm(props: DeleteUserBtnProps) {
         message: "",
     });
 
-    if (formState.message) {
-        toast.success(formState.message);
-    }
-
     return (
         <form action={action}>
-            <ToastContainer />
             <DeleteUserBtn />
-            {/* {formState.message ? toast.success("user deleted") : null} */}
         </form>
     );
 }
