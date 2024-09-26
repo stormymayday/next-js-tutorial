@@ -11,6 +11,11 @@ function Form() {
         errorMessage: "",
     });
 
+    if (formState.successMessage) {
+        toast.success(formState.successMessage);
+        console.log(`hello`);
+    }
+
     return (
         <form action={action} className={formStyle}>
             <h2 className={formHeaderStyle}>create user</h2>
@@ -29,18 +34,17 @@ function Form() {
 
             <CreateUserBtn />
 
-            {formState.successMessage
-                ? toast.success(formState.successMessage)
-                : // <div className="my-2 p-2 bg-green-200 border rounded text-center">
-                  //     {formState.successMessage}
-                  // </div>
-                  null}
+            {/* {formState.successMessage ? (
+                <div className="my-2 p-2 bg-green-200 border rounded text-center">
+                    {formState.successMessage}
+                </div>
+            ) : null}
 
             {formState.errorMessage ? (
                 <div className="my-2 p-2 bg-red-200 border rounded text-center">
                     {formState.errorMessage}
                 </div>
-            ) : null}
+            ) : null} */}
         </form>
     );
 }
