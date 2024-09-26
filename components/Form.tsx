@@ -3,6 +3,7 @@
 import { useFormState } from "react-dom";
 import * as actions from "@/actions";
 import CreateUserBtn from "./CreateUserBtn";
+import { toast } from "react-toastify";
 
 function Form() {
     const [formState, action] = useFormState(actions.createUser, {
@@ -28,11 +29,12 @@ function Form() {
 
             <CreateUserBtn />
 
-            {formState.successMessage ? (
-                <div className="my-2 p-2 bg-green-200 border rounded text-center">
-                    {formState.successMessage}
-                </div>
-            ) : null}
+            {formState.successMessage
+                ? toast.success(formState.successMessage)
+                : // <div className="my-2 p-2 bg-green-200 border rounded text-center">
+                  //     {formState.successMessage}
+                  // </div>
+                  null}
 
             {formState.errorMessage ? (
                 <div className="my-2 p-2 bg-red-200 border rounded text-center">

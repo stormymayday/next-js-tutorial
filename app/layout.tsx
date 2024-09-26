@@ -2,6 +2,8 @@ import "./globals.css";
 import { Roboto } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const roboto = Roboto({
     subsets: ["latin"],
@@ -25,6 +27,7 @@ export default function RootLayout({
                 <main className="max-w-3xl mx-auto py-10">
                     <Navbar />
                     {children}
+                    <ToastContainer />
                 </main>
             </body>
         </html>
