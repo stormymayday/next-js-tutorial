@@ -1,8 +1,9 @@
-import { createUser } from "@/actions";
+import * as actions from "@/actions";
+import CreateUserBtn from "./CreateUserBtn";
 
 function Form() {
     return (
-        <form action={createUser} className={formStyle}>
+        <form action={actions.createUser} className={formStyle}>
             <h2 className={formHeaderStyle}>create user</h2>
             <input
                 className={formInputStyle}
@@ -16,9 +17,7 @@ function Form() {
                 name="lastName"
                 defaultValue="smith"
             />
-            <button className={formBtnStyle} type="submit">
-                submit
-            </button>
+            <CreateUserBtn />
         </form>
     );
 }
@@ -26,7 +25,5 @@ function Form() {
 const formStyle = "max-w-lg flex flex-col gap-y-4 rounded shadow p-8";
 const formHeaderStyle = "text-xl capitalize text-center mb-4";
 const formInputStyle = "p-2 border rounded text-gray-700";
-const formBtnStyle =
-    "bg-blue-500 hover:bg-blue-700 p-2 rounded text-white font-bold capitalize";
 
 export default Form;
