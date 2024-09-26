@@ -2,7 +2,6 @@
 
 import { db } from "@/db";
 import { revalidatePath } from "next/cache";
-
 // import { redirect } from "next/navigation";
 
 export async function createUser(
@@ -10,7 +9,6 @@ export async function createUser(
     formData: FormData
 ) {
     try {
-        // Check the user's inputs and sure they are valid
         const firstName = formData.get("firstName");
         const lastName = formData.get("lastName");
 

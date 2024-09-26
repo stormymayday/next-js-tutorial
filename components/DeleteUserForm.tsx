@@ -4,6 +4,7 @@ import { deleteUser } from "@/actions";
 import DeleteUserBtn from "./DeleteUserBtn";
 import { useFormState } from "react-dom";
 // import { toast } from "react-toastify";
+// import { useEffect } from "react";
 
 interface DeleteUserBtnProps {
     id: string;
@@ -15,7 +16,16 @@ function DeleteUserForm(props: DeleteUserBtnProps) {
         message: "",
     });
 
-    console.log(deleteUserFormState.message);
+    if (deleteUserFormState.message) {
+        // toast.success(deleteUserFormState.message);
+        console.log(deleteUserFormState.message);
+    }
+
+    // useEffect(() => {
+    //     if (deleteUserFormState.message) {
+    //         toast.success(deleteUserFormState.message);
+    //     }
+    // }, [deleteUserFormState.message]);
 
     return (
         <form action={action}>
