@@ -60,7 +60,10 @@ export async function createUser(
 export const deleteUser = async (
     formState: { message: string },
     id: string
+    // formData: FormData
 ) => {
+    // const id = formData.get("id") as string;
+
     try {
         await db.user.delete({
             where: {

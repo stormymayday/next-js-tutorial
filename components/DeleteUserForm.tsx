@@ -16,12 +16,11 @@ function DeleteUserForm(props: DeleteUserBtnProps) {
         message: "",
     });
 
-    if (deleteUserFormState.message) {
-        toast.success(deleteUserFormState.message);
-    }
+    console.log(deleteUserFormState.message);
 
     return (
         <form action={action}>
+            {/* <input type="hidden" name="id" value={props.id} /> */}
             <DeleteUserBtn />
         </form>
     );

@@ -3,18 +3,13 @@
 import { useFormState } from "react-dom";
 import * as actions from "@/actions";
 import CreateUserBtn from "./CreateUserBtn";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 
 function Form() {
     const [createUserFormState, action] = useFormState(actions.createUser, {
         successMessage: "",
         errorMessage: "",
     });
-
-    if (createUserFormState.successMessage) {
-        toast.success(createUserFormState.successMessage);
-        console.log(`hello`);
-    }
 
     return (
         <form action={action} className={formStyle}>
@@ -34,17 +29,17 @@ function Form() {
 
             <CreateUserBtn />
 
-            {/* {formState.successMessage ? (
+            {createUserFormState.successMessage ? (
                 <div className="my-2 p-2 bg-green-200 border rounded text-center">
-                    {formState.successMessage}
+                    {createUserFormState.successMessage}
                 </div>
             ) : null}
 
-            {formState.errorMessage ? (
+            {createUserFormState.errorMessage ? (
                 <div className="my-2 p-2 bg-red-200 border rounded text-center">
-                    {formState.errorMessage}
+                    {createUserFormState.errorMessage}
                 </div>
-            ) : null} */}
+            ) : null}
         </form>
     );
 }
